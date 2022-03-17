@@ -105,7 +105,7 @@ function App() {
           My<br />
           Portfolio
         </h1>
-        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw', fontSize: '5vw',color: "#059C9F" }}>All are front-end projects and they mostly are done with React and libraries like Gsap, Three.js, R3F and like so.</h1>
+        <h1 style={{ position: 'absolute', top: '150vh', left: '10vw', fontSize: '3vw',color: "#059C9F" }}>All are front-end projects and they mostly are done with React and libraries like Gsap, Three.js, R3F and like so.</h1>
         <h1 style={{ position: 'absolute', top: '290vh', width:"25vw", right: '32vw', color: "aliceblue"}}>Created with creativity<br/>Because It's most important about design</h1>
         <h1 style={{ position: 'absolute', top: '290vh', width:"25vw", left: '10vw', color: "aliceblue" }}>Click on Photos <rb/>to see more about my websites</h1>
         <h1 style={{ position: 'absolute', top: '290vh', width:"25vw", left: '68vw', color: "aliceblue" }}>Created with most trending <br/>web feature, 3D</h1>
