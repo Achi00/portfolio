@@ -40,10 +40,11 @@ const Grid = () => {
   const WW = useLoader(THREE.TextureLoader, worldWeb)
   const CW = useLoader(THREE.TextureLoader, carWeb)
   const load = useLoader(THREE.TextureLoader, loading)
+  const { viewport } = useThree()
   const gridRef = useRef()
   useFrame(() => (gridRef.current.position.y = scroll.offset * 6))
   return(
-    <group ref={gridRef}>
+    <group ref={gridRef} scale={(viewport.width / 5)}>
       {/* nvidia */}
       <Plane position={[-1, -3, 0]} onClick={e => window.open('https://nvidia-gpus.netlify.app/', '_blank')}>
       <meshBasicMaterial attach="material" map={gpu} toneMapped={false} />
@@ -71,6 +72,7 @@ const Grid = () => {
 
 
 function App() {
+  
   const [hovered, hover] = useState(false)
   const mouse = useRef([0, 0])
   useEffect(() => {
@@ -99,15 +101,15 @@ function App() {
           <Grid mouse={mouse} hover={hover} />
           <BackGrid position={[0, -2, 0]}/>
           <Scroll html style={{ width: '100%' }}>
-        <h1 style={{ position: 'absolute',color: "aliceblue", top: `100vh`, right: '35vw', fontSize: '5em',letterSpacing: '3px', transform: `translate3d(0,-100%,0)` }}>
+        <h1 style={{ position: 'absolute',color: "aliceblue", top: `100vh`, right: '35vw', fontSize: '5vw',letterSpacing: '3px', transform: `translate3d(0,-100%,0)` }}>
           My<br />
           Portfolio
         </h1>
-        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw', fontSize: '2em',color: "#059C9F" }}>All are front-end projects and they mostly are done with React and libraries like Gsap, Three.js, R3F and like so.</h1>
+        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw', fontSize: '5vw',color: "#059C9F" }}>All are front-end projects and they mostly are done with React and libraries like Gsap, Three.js, R3F and like so.</h1>
         <h1 style={{ position: 'absolute', top: '290vh', width:"25vw", right: '32vw', color: "aliceblue"}}>Created with creativity<br/>Because It's most important about design</h1>
         <h1 style={{ position: 'absolute', top: '290vh', width:"25vw", left: '10vw', color: "aliceblue" }}>Click on Photos <rb/>to see more about my websites</h1>
         <h1 style={{ position: 'absolute', top: '290vh', width:"25vw", left: '68vw', color: "aliceblue" }}>Created with most trending <br/>web feature, 3D</h1>
-        <h1 style={{ position: 'absolute', top: '330vh', width:"25vw", left: '68vw', color: "aliceblue" }}>Mail: <br/>achikoogorgadze@gmail.com</h1>
+        <h1 style={{ position: 'absolute', top: '330vh', width:"25vw", left: '50vw', color: "aliceblue" }}>Mail: <br/>achikoogorgadze@gmail.com</h1>
       </Scroll>
           </ScrollControls>
         </Suspense>
