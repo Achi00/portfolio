@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Audiowide&family=Bebas+Neue&family=Dongle:wght@700&family=Hubballi&family=Inter:wght@900&family=Italiana&family=Kanit&family=Lato&family=League+Spartan:wght@100&family=Lobster&family=Montserrat:ital,wght@1,100&family=Oswald:wght@500&family=Pacifico&family=Roboto+Mono:wght@100&family=Roboto:wght@700&family=Rubik:wght@600&family=Russo+One&family=Train+One&display=swap");
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  background: #0f182b;
+  /* background: linear-gradient(to right, #b0abd4, rgb(93, 93, 93)); */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  font-family: "Roboto Mono", monospace;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #768e8f;
 }
