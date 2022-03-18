@@ -94,10 +94,10 @@ const Objects = () => {
     </mesh>
     </group>
     <group ref={objRef1}>
-      <Tetrahedron position={[0, -5, 0]}/>
+      <Tetrahedron position={[2, -5, 2]}/>
     </group>
     <group ref={objRef2}>
-      <Torus position={[0, 0, 0]}>
+      <Torus position={[0, 0, -1]}>
       <meshStandardMaterial color={'red'} />
       </Torus>
     </group>
