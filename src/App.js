@@ -71,6 +71,7 @@ const Grid = () => {
 }
 
 const Objects = () => {
+  const { viewport } = useThree()
   const scroll = useScroll()
   const objRef = useRef()
   const objRef1 = useRef()
@@ -83,7 +84,7 @@ const Objects = () => {
   useFrame(() => (objRef2.current.position.y = scroll.offset * 6, objRef2.current.rotation.x = scroll.offset * 6))
   useFrame(() => (objRef3.current.position.y = scroll.offset * 6))
   return(
-    <>
+    <group scale={(viewport.width / 8)}>
     <group ref={objRef}>
     <TorusKnot scale={0.2} position={[0, 0, -3]}>
     <meshStandardMaterial color={'#55080E'} />
@@ -105,7 +106,7 @@ const Objects = () => {
       <meshStandardMaterial color={'gray'} />
       </Extrude>
     </group>
-    </>
+    </group>
   )
 }
 
