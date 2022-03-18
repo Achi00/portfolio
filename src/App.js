@@ -1,9 +1,9 @@
 
 import './App.css';
 import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
-import { Html, Scroll, useScroll, ScrollControls, Plane } from "@react-three/drei";
+import { Html, Scroll, useScroll, ScrollControls, Plane, TorusKnot, Icosahedron, Tetrahedron, Torus, Extrude } from "@react-three/drei";
 import * as THREE from "three";
-import React, { Suspense, useEffect, useRef, useState, useCallback} from "react";
+import React, { Suspense, useEffect, useRef, useState} from "react";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import Payment from './img/payment.jpg'
 import Nvidia from './img/Nvidia.jpg'
@@ -70,6 +70,44 @@ const Grid = () => {
   )
 }
 
+const Objects = () => {
+  const scroll = useScroll()
+  const objRef = useRef()
+  const objRef1 = useRef()
+  const objRef2 = useRef()
+  const objRef3 = useRef()
+  const IcoRef = useRef()
+  useFrame((state, delta) => (IcoRef.current.rotation.z += 0.01))
+  useFrame(() => (objRef.current.position.y = scroll.offset * 6))
+  useFrame(() => (objRef1.current.rotation.z = scroll.offset * 0.5,objRef1.current.rotation.x = scroll.offset * 3))
+  useFrame(() => (objRef2.current.position.y = scroll.offset * 6, objRef2.current.rotation.x = scroll.offset * 6))
+  useFrame(() => (objRef3.current.position.y = scroll.offset * 6))
+  return(
+    <>
+    <group ref={objRef}>
+    <TorusKnot scale={0.2} position={[0, 0, -3]}>
+    <meshStandardMaterial color={'#55080E'} />
+    </TorusKnot>
+    <mesh ref={IcoRef}>
+    <Icosahedron scale={0.3} position={[-1.5, -2, 0]}/>
+    </mesh>
+    </group>
+    <group ref={objRef1}>
+      <Tetrahedron position={[0, -5, 0]}/>
+    </group>
+    <group ref={objRef2}>
+      <Torus position={[0, 0, 0]}>
+      <meshStandardMaterial color={'red'} />
+      </Torus>
+    </group>
+    <group ref={objRef3}>
+      <Extrude position={[0, -6, -2]}>
+      <meshStandardMaterial color={'gray'} />
+      </Extrude>
+    </group>
+    </>
+  )
+}
 
 function App() {
   
@@ -98,6 +136,7 @@ function App() {
 
         <Suspense fallback={<Html center>loading..</Html>}>
           <ScrollControls pages={3.5}>
+          <Objects />
           <Grid mouse={mouse} hover={hover} />
           <BackGrid position={[0, -2, 0]}/>
           <Scroll html style={{ width: '100%' }}>
