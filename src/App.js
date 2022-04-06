@@ -171,20 +171,6 @@ const Drone = () => {
 
   )
 }
-const SpaceShip = () => {
-  const gltf = useLoader(GLTFLoader, '/spaceShip.gltf')
-  const shipRef = useRef()
-  // useFrame((state) => {
-  //   const t = state.clock.getElapsedTime()
-  //   shipRef.current.position.y = (2 + Math.sin(t)) / 5
-  // })
-  return (
-    <group ref={shipRef} position={[0, 0, 0]}>
-      <primitive object={gltf.scene} scale={100} />
-    </group>
-
-  )
-}
 
 function Rig() {
   const { camera, mouse } = useThree()
@@ -222,7 +208,6 @@ function App() {
           <ScrollControls pages={3.5}>
           <Objects />
           <Drone />
-          <SpaceShip />
           <Grid mouse={mouse} hover={hover} />
           <BackGrid position={[0, -2, 0]}/>
           <Scroll html style={{ width: '100%' }}>
